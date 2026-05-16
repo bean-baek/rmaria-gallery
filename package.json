@@ -7,11 +7,14 @@
     "dev": "vite",
     "build": "vite build",
     "build:full": "npm run images && npm run build",
-    "preview": "vite preview",
-    "images": "node scripts/optimize-images.mjs"
+    "preview": "npm run build && wrangler dev",
+    "images": "node scripts/optimize-images.mjs",
+    "deploy": "npm run build && wrangler deploy"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.37.1",
     "sharp": "^0.33.5",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "wrangler": "^4.92.0"
   }
 }
